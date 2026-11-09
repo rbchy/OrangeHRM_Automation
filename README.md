@@ -1,227 +1,213 @@
-# OrangeHRM BDD Automation Framework
+<div align="center">
 
-> An enterprise-grade, behavior-driven development (BDD) test automation framework engineered to validate the complete HR management lifecycle of the **OrangeHRM** platform. This project demonstrates dual expertise in **software engineering** and **QA automation** — implementing clean code architectures, proven design patterns, and production-scale testing practices that mirror real-world delivery pipelines.
+# 👥 OrangeHRM BDD Automation
 
----
+### Cucumber + Selenium suite for the OrangeHRM demo — login, logout, PIM › Add Employee
 
-## 🎯 Project Mission
+[![Typing SVG](https://readme-typing-svg.demolab.com/?font=Fira+Code&size=18&pause=1500&color=FFC107&center=true&vCenter=true&width=900&repeat=true&lines=Java+17+%C2%B7+Selenium+4+%C2%B7+Cucumber+7+%C2%B7+TestNG+%C2%B7+Extent+Reports;Login+%C2%B7+invalid+password+%C2%B7+logout+%C2%B7+add+employee+%C2%B7+validation;5+%2F+5+scenarios+passing+in+GitHub+Actions)](https://git.io/typing-svg)
 
-OrangeHRM is a widely deployed, open-source HR management system used by enterprises globally. This framework was built to establish a **living regression safety net** around its core HR workflows — ensuring that every build is validated against human-readable business requirements before it reaches production.
+<!-- ============ STATUS BAR ============ -->
+[![Tests](https://github.com/rbchy/OrangeHRM_Automation/actions/workflows/tests.yml/badge.svg)](https://github.com/rbchy/OrangeHRM_Automation/actions/workflows/tests.yml)
+![Pass Rate](https://img.shields.io/badge/Pass%20Rate-100%25%20(5%2F5)-22c55e?style=for-the-badge&logo=checkmarx&logoColor=white)
+![Domain](https://img.shields.io/badge/Domain-HR%20Management-155e75?style=for-the-badge)
+![Target](https://img.shields.io/badge/Target-OrangeHRM%20demo-1e3a8a?style=for-the-badge&logo=googlechrome&logoColor=white)
 
-The framework treats test automation not as an afterthought, but as a **first-class engineering discipline**: with layered architecture, separation of concerns, and a design that scales horizontally across features, environments, and team members.
+![Java](https://img.shields.io/badge/Java-17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Selenium](https://img.shields.io/badge/Selenium-4.18-43B02A?style=for-the-badge&logo=selenium&logoColor=white)
+![Cucumber](https://img.shields.io/badge/Cucumber-7.15-23D96C?style=for-the-badge&logo=cucumber&logoColor=white)
+![TestNG](https://img.shields.io/badge/TestNG-7.9-FF7F00?style=for-the-badge)
+![Extent](https://img.shields.io/badge/Extent%20Reports-5.1-2196F3?style=for-the-badge)
+![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
 
----
+![Last Commit](https://img.shields.io/github/last-commit/rbchy/OrangeHRM_Automation?style=flat-square&color=0d9488&label=Last%20commit)
+![Repo Size](https://img.shields.io/github/repo-size/rbchy/OrangeHRM_Automation?style=flat-square&color=155e75&label=Repo%20size)
 
-## 🚀 Key Architectural Highlights
-
-### True BDD Execution
-Feature files are authored in **plain Gherkin** — readable by business stakeholders, product owners, and QA alike. Step definitions are decoupled, highly reusable, and mapped one-to-one with business intent rather than implementation details.
-
-### Page Object Model (POM)
-A strict POM enforces **UI element isolation** from test logic. Every page in the OrangeHRM application is represented as a dedicated Java class — locators live exactly where they belong, making maintenance a single-point-of-change operation rather than a cross-cutting concern.
-
-### Robust Synchronization
-Brittle `Thread.sleep()` calls are entirely absent from this codebase. All wait strategies are implemented using **custom explicit and fluent wait wrappers**, built on top of Selenium's `ExpectedConditions` and `FluentWait` APIs, yielding deterministic and timing-resilient test execution.
-
-### Enterprise-Grade Reporting
-Every test run produces dual-layer reporting artifacts:
-- **Extent Reports** — interactive HTML dashboards with step-level pass/fail breakdown, execution timelines, and embedded failure screenshots
-- **Cucumber HTML Reports** — scenario-level BDD traceability reports mapping Gherkin steps to their execution outcomes
-
-### Screenshot on Failure
-Automated screenshot capture is wired into the framework's `@After` hooks, attaching visual evidence of failures directly into the Extent Report — eliminating the guesswork in post-mortem defect analysis.
+</div>
 
 ---
 
-## 🛠 Tech Stack & Tools
+## 📌 At a Glance
 
-| Component | Technology | Version | Purpose |
-| :--- | :--- | :--- | :--- |
-| **Language** | Java | 17+ | Core programming, OOP design, and lambda expressions |
-| **Automation Engine** | Selenium WebDriver | 4.x | Cross-browser browser control and DOM manipulation |
-| **Framework Runner** | TestNG | Latest | Suite management, grouping, parallel execution, and listeners |
-| **BDD Layer** | Cucumber JVM | 7.x | Gherkin feature-to-step-definition mapping |
-| **Build Tool** | Apache Maven | 3.x | Dependency resolution, lifecycle management, and CI integration |
-| **Reporting** | Extent Reports + Cucumber HTML | Latest | Visual dashboards and BDD traceability |
-| **Design Pattern** | Page Object Model | — | UI element encapsulation and maintainability |
-| **IDE & Platform** | Eclipse IDE | macOS | Development, debugging, and run configuration |
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**🙋 What this is**
+
+A BDD suite for **[OrangeHRM](https://opensource-demo.orangehrmlive.com/)**, the open-source HR management system, run against its public demo. Plain-English Gherkin drives Page Objects through Selenium: authentication (valid login, wrong password, logout) and **PIM › Add Employee** — including checking that the saved employee's profile really opens, and that a missing required field blocks the save.
+
+Every push runs the suite in **GitHub Actions** with headless Chrome and keeps three reports.
+
+> *A test that cannot fail is not a test — every step here asserts something on the real page.*
+
+</td>
+<td width="50%" valign="top">
+
+**📍 Quick facts**
+
+| | |
+|---|---|
+| 🧪 **Scenarios** | 5 in 2 feature files |
+| ✅ **CI** | 5 / 5 · headless Chrome · ≈ 40 s |
+| 🏷️ **Tags** | `@smoke` · `@regression` · `@Login` · `@PIM` · `@negative` |
+| 📊 **Reports** | Extent · Cucumber HTML · masterthought |
+| 📸 **On failure** | Screenshot in Extent and Cucumber |
+
+</td>
+</tr>
+</table>
+
+---
+
+## ✅ Latest Results
+
+| Feature | Scenario | Tags | Result |
+|---|---|---|---|
+| 🔐 Login | Valid login opens the dashboard | `@smoke @regression` | ![passed](https://img.shields.io/badge/-passed-22c55e?style=flat-square) |
+| 🔐 Login | Invalid password shows *"Invalid credentials"* | `@regression @negative` | ![passed](https://img.shields.io/badge/-passed-22c55e?style=flat-square) |
+| 🔐 Login | Logout returns to the login page | `@smoke @regression` | ![passed](https://img.shields.io/badge/-passed-22c55e?style=flat-square) |
+| 👤 PIM | Add a new employee → their Personal Details page opens with the right name | `@smoke @regression` | ![passed](https://img.shields.io/badge/-passed-22c55e?style=flat-square) |
+| 👤 PIM | Missing last name → *"Required"* and nothing is saved | `@regression @negative` | ![passed](https://img.shields.io/badge/-passed-22c55e?style=flat-square) |
+
+<sub>GitHub Actions, Ubuntu, Temurin 17, headless Chrome ([workflow](.github/workflows/tests.yml)). Each new employee gets a unique last name, so runs on the shared demo never collide.</sub>
+
+---
+
+## 🏗️ Framework Architecture
+
+```mermaid
+flowchart LR
+  F["Feature files<br/>(Gherkin)"] --> S["Step definitions<br/>Login · AddEmployee"]
+  S --> P["Page Objects<br/>LoginPage · AddEmployeePage"]
+  P --> W["WaitUtils<br/>explicit waits"]
+  W --> D["DriverManager<br/>ThreadLocal Chrome"]
+  D --> O["OrangeHRM demo"]
+  H["Hooks"] -.->|"browser per scenario ·<br/>screenshot on failure"| D
+  H -.-> R["Extent · Cucumber ·<br/>masterthought reports"]
+  C["config.properties"] -.-> S
+```
+
+- **One place creates the browser** — `DriverManager` (one `WebDriver` per thread, headless on request)
+- **Explicit waits only** — `WaitUtils` waits for visibility, clickability, URL changes, OrangeHRM's loader and text that renders late
+- **Page Object Model** — locators and actions in `LoginPage` and `AddEmployeePage`
+- **Config, not code** — URL, the demo's published credentials, timeout and headless live in `config.properties`
+- **Three reports** — Extent (with failure screenshots), Cucumber HTML / JSON / JUnit XML, and a masterthought report built from the JSON
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology | Version |
+|---|---|---|
+| Language | Java | 17 |
+| Browser automation | Selenium WebDriver + WebDriverManager | 4.18.1 · 5.7.0 |
+| BDD | Cucumber JVM | 7.15.0 |
+| Runner | TestNG (`cucumber-testng`) | 7.9.0 |
+| Reporting | Extent Reports · masterthought cucumber-reporting | 5.1.1 · 5.7.0 |
+| Build | Maven (Surefire, `testng.xml`) | — |
+| CI | GitHub Actions | — |
 
 ---
 
 ## 📁 Project Structure
 
-```text
+```
 OrangeHRM_Automation/
-├── src/
-│   └── test/
-│       ├── java/
-│       │   ├── runners/
-│       │   │   └── TestRunner.java          # CucumberOptions, TestNG entry point
-│       │   ├── stepdefinitions/
-│       │   │   ├── LoginSteps.java          # Login / Authentication step glue
-│       │   │   ├── EmployeeSteps.java       # PIM / Employee management step glue
-│       │   │   ├── LeaveSteps.java          # Leave module step glue
-│       │   │   ├── RecruitmentSteps.java    # Recruitment workflow step glue
-│       │   │   └── CommonSteps.java         # Shared / background step definitions
-│       │   ├── pages/
-│       │   │   ├── LoginPage.java           # Login page locators and actions
-│       │   │   ├── DashboardPage.java       # Dashboard navigation actions
-│       │   │   ├── EmployeePage.java        # PIM module page objects
-│       │   │   ├── LeavePage.java           # Leave module page objects
-│       │   │   └── RecruitmentPage.java     # Recruitment module page objects
-│       │   └── utils/
-│       │       ├── DriverFactory.java       # WebDriver initialization and teardown
-│       │       ├── WaitUtils.java           # Custom explicit and fluent wait wrappers
-│       │       ├── ConfigReader.java        # config.properties parser and accessor
-│       │       ├── ScreenshotUtils.java     # Failure screenshot capture and attachment
-│       │       └── ExtentReportManager.java # Extent Reports lifecycle manager
-│       └── resources/
-│           ├── features/
-│           │   ├── Login.feature            # Login and authentication scenarios
-│           │   ├── Employee.feature         # Add / edit / delete employee scenarios
-│           │   ├── Leave.feature            # Apply / approve / reject leave scenarios
-│           │   └── Recruitment.feature      # Job vacancy and candidate workflows
-│           └── config.properties            # Base URL, credentials, browser, timeouts
-├── test-output/
-│   ├── ExtentReport.html                    # Interactive visual execution report
-│   └── cucumber-reports/                    # Cucumber HTML BDD traceability report
-├── pom.xml                                  # Maven dependencies and Surefire plugin config
-└── README.md                                # Project documentation
+├── .github/workflows/tests.yml        ← headless run + reports on every push
+├── src/test/java/
+│   ├── hooks/Hooks.java               ← browser per scenario, Extent test, screenshots
+│   ├── pages/
+│   │   ├── LoginPage.java             ← login, error alert, logout
+│   │   └── AddEmployeePage.java       ← PIM › Add Employee, Personal Details
+│   ├── stepdefinitions/
+│   │   ├── LoginSteps.java
+│   │   └── AddEmployeeSteps.java
+│   ├── runner/TestRunner.java
+│   ├── reports/GenerateReport.java    ← masterthought HTML report from cucumber.json
+│   └── utils/                         ← DriverManager, WaitUtils, ConfigReader, ExtentManager
+├── src/test/resources/
+│   ├── config.properties
+│   └── features/                      ← login.feature, Add_Employee.feature
+├── testng.xml
+└── pom.xml
 ```
 
 ---
 
-## 🌐 OrangeHRM Modules Under Test
+## ⚙️ Getting Started
 
-| Module | Scenarios Covered |
-| :--- | :--- |
-| **Authentication** | Valid login, invalid credentials, session timeout, logout |
-| **PIM — Employee Management** | Add employee, edit personal details, search, delete |
-| **Leave Management** | Apply for leave, approve / reject, leave balance verification |
-| **Recruitment** | Post job vacancy, add candidate, track application status |
-| **Admin** | User role management, system configuration validation |
-
----
-
-## ⚙️ Setup & Execution
-
-### Prerequisites
-
-Ensure the following are installed on your machine:
-
-- Java JDK 17+
-- Apache Maven 3.6+
-- Google Chrome (latest) or Mozilla Firefox
-- OrangeHRM instance running locally or accessible via network
-
-### Clone the Repository
+**Prerequisites:** JDK 17+ · Maven 3.8+ · Google Chrome
 
 ```bash
-git clone https://github.com/your-username/OrangeHRM_Automation.git
+git clone https://github.com/rbchy/OrangeHRM_Automation.git
 cd OrangeHRM_Automation
+
+mvn clean test                                        # all scenarios
+mvn clean test -Dheadless=true                        # what CI runs
+mvn clean test -Dcucumber.filter.tags="@smoke"        # smoke only
+mvn exec:java -Dexec.mainClass=reports.GenerateReport -Dexec.classpathScope=test   # masterthought report
 ```
 
-### Configure the Environment
-
-Open `src/test/resources/config.properties` and set your environment values:
-
-```properties
-base.url=https://opensource-demo.orangehrmlive.com
-browser=chrome
-admin.username=Admin
-admin.password=admin123
-implicit.wait=10
-explicit.wait=20
-```
-
-### Run the Full Test Suite
-
-```bash
-mvn clean test
-```
-
-### Run by Tag
-
-```bash
-# Run only smoke tests
-mvn clean test -Dcucumber.filter.tags="@smoke"
-
-# Run regression suite
-mvn clean test -Dcucumber.filter.tags="@regression"
-
-# Run a specific module
-mvn clean test -Dcucumber.filter.tags="@login or @employee"
-```
+| Report | Location |
+|---|---|
+| Extent Reports | `target/ExtentReport.html` |
+| Cucumber HTML / JSON / JUnit | `target/cucumber-report.html` · `target/cucumber.json` · `target/cucumber.xml` |
+| masterthought | `target/advanced-report/` |
 
 ---
 
-## 📊 Reporting
+## 🧹 Maintenance Log
 
-After each execution, reports are generated automatically:
-
-| Report Type | Output Path | Description |
-| :--- | :--- | :--- |
-| **Extent HTML Report** | `test-output/ExtentReport.html` | Visual dashboard with step details and screenshots |
-| **Cucumber HTML Report** | `test-output/cucumber-reports/` | BDD-native scenario traceability |
-
-Open `ExtentReport.html` in any browser to review the full execution summary, feature-level breakdown, and embedded failure screenshots.
-
----
-
-## 🏗 Design Principles
-
-### Separation of Concerns
-Test logic (step definitions), UI interaction (page objects), and infrastructure (utilities) are cleanly separated into distinct layers. No layer has knowledge of another's internal implementation — only its public interface.
-
-### DRY — Don't Repeat Yourself
-Common background steps (`@Before`, `@After` hooks), shared wait utilities, and reusable page action methods ensure that code is authored once and reused everywhere.
-
-### Fail Fast with Meaningful Errors
-All assertions produce actionable failure messages. Combined with automatic screenshot capture on failure, every defect report contains sufficient context for immediate triage.
-
-### Configuration-Driven
-All environment-specific values (URLs, credentials, browser type, wait timeouts) are externalized to `config.properties`. No hard-coded values exist in the codebase — the framework is environment-agnostic by design.
+| Change | Why |
+|---|---|
+| Step definitions rewritten to drive the page objects and assert results | Every step only **printed** text — the login step opened a second Chrome and never logged in, add-employee did nothing — so all scenarios passed without testing anything |
+| New scenarios: wrong password, logout, required last name | Negative paths were missing |
+| `DriverManager` is the single browser factory | Four classes each created their own Chrome |
+| Removed `DashBoardPage`, an unused TestNG `AddEmployeeTest` / `BaseTest`, two duplicate driver helpers | Made-up locators (`#addEmployeeMenu`, `#employeeTable`) and dead code |
+| Added `ConfigReader` + `config.properties` and `WaitUtils` | The old README described them, but they did not exist |
+| Headless switch and GitHub Actions | Every push is checked; reports kept as artifacts |
+| README describes only what exists | Leave, Recruitment and Admin modules, `ScreenshotUtils` and a `your-username` clone URL were listed but not real |
 
 ---
 
-## 🧩 Sample Gherkin Feature
+## 📈 Roadmap
 
-```gherkin
-@smoke @login
-Feature: OrangeHRM Login Functionality
-  As an HR administrator
-  I want to authenticate securely into the OrangeHRM portal
-  So that I can manage employee records and HR workflows
-
-  Background:
-    Given User navigates to the OrangeHRM login page
-
-  @positive
-  Scenario: Successful login with valid credentials
-    When User enters username "Admin" and password "admin123"
-    And User clicks the Login button
-    Then User should be redirected to the Dashboard
-    And The welcome message should display "Welcome Admin"
-
-  @negative
-  Scenario: Login failure with invalid credentials
-    When User enters username "admin" and password "wrongpass"
-    And User clicks the Login button
-    Then An error message "Invalid credentials" should be displayed
-    And User should remain on the Login page
-```
+- [x] Real login, logout and PIM scenarios with GitHub Actions
+- [ ] PIM: search and delete the employee that was just added
+- [ ] Leave: apply, approve and reject (needs an entitlement set up first)
+- [ ] Recruitment: vacancy and candidate flow
+- [ ] Firefox and Edge in a CI browser matrix
 
 ---
 
-## 👨‍💻 Author
+## 🔗 Related Projects
 
-**RB Chowdhury**
-Software Developer | QA Automation Engineer
+| Project | Stack |
+|---|---|
+| 🧾 [OrangeHRM Payroll Automation](https://github.com/rbchy/OrangeHRM_TestAutomation_TestNG_Junit5) | JUnit 5 · TestNG · REST Assured · WireMock — 66 / 66 in CI |
+| 🏥 [OpenEMR Healthcare](https://github.com/rbchy/OpenEMR_Automation) | Java · Selenium · Cucumber · TestNG — CI green |
+| 🧪 [QA Brains — Java + Selenium](https://github.com/rbchy/QaBrainsAutomationJavaSelenium) | Java · Selenium · Cucumber — CI green |
+| ⭐ [RbcTcsWorld E-Commerce Suite](https://github.com/rbchy/RbcTcsWorld_ECommerceSuite) | Spring Boot · REST Assured · Selenium · Playwright · CI quality gates |
 
-> *"Quality is not an act, it is a habit."* — Aristotle
+<sub>All projects: [github.com/rbchy](https://github.com/rbchy)</sub>
 
 ---
 
-## 📄 License
+## 👤 Author
 
-This project is licensed under the MIT License. See the `LICENSE` file for full details.
+<div align="center">
+
+**Ranajit Baran Chowdhury (RB Chowdhury)**
+QA Automation Engineer / SDET · West Norriton, Pennsylvania, USA
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rbchy/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rbchy)
+[![Website](https://img.shields.io/badge/Website-rbchy.github.io%2Frbchy-0d9488?style=for-the-badge&logo=githubpages&logoColor=white)](https://rbchy.github.io/rbchy/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Website-blueviolet?style=for-the-badge&logo=wix&logoColor=white)](https://rbc6543.wixsite.com/rbc-portfolio)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:chyranajit@gmail.com)
+
+<sub>The OrangeHRM demo is a public, shared instance reset regularly by OrangeHRM; only its published demo credentials are used.</sub>
+
+⭐ *If this framework helps you, a star on the repo is appreciated.*
+
+</div>
