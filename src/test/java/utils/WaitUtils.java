@@ -34,6 +34,14 @@ public final class WaitUtils {
         waitFor(driver).until(ExpectedConditions.textToBePresentInElementLocated(locator, text));
     }
 
+    /** Waits until the element shows non-empty text (OrangeHRM fills headers in after the page renders). */
+    public static String nonEmptyText(WebDriver driver, By locator) {
+        return waitFor(driver).until(d -> {
+            String t = d.findElement(locator).getText().trim();
+            return t.isEmpty() ? null : t;
+        });
+    }
+
     /** OrangeHRM shows a full-page loader between screens; wait until it is gone. */
     public static void loaderGone(WebDriver driver) {
         waitFor(driver).until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".oxd-form-loader, .oxd-loading-spinner")));

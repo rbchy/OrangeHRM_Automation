@@ -42,7 +42,8 @@ public class AddEmployeePage {
     public String savedEmployeeName() {
         WaitUtils.urlContains(driver, "pim/viewPersonalDetails/empNumber/");
         WaitUtils.loaderGone(driver);
-        return WaitUtils.visible(driver, profileName).getText().trim();
+        WaitUtils.visible(driver, profileName);
+        return WaitUtils.nonEmptyText(driver, profileName);
     }
 
     public String fieldError() {
