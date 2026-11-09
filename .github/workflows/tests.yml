@@ -1,0 +1,39 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ui:
+    name: Cucumber UI tests (headless Chrome, OrangeHRM demo)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - name: Run the scenarios
+        run: mvn -B --no-transfer-progress clean test -Dheadless=true
+      - name: Build the masterthought Cucumber report
+        if: always()
+        run: mvn -B --no-transfer-progress exec:java -Dexec.mainClass=reports.GenerateReport -Dexec.classpathScope=test || true
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports
+          path: |
+            target/ExtentReport.html
+            target/cucumber-report.html
+            target/cucumber.json
+            target/advanced-report/
+            target/surefire-reports/
+          if-no-files-found: ignore

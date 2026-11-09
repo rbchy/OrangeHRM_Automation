@@ -5,8 +5,8 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.payroll.automation</groupId>
-    <artifactId>payroll-framework</artifactId>
+    <groupId>com.orangehrm.automation</groupId>
+    <artifactId>orangehrm-bdd-framework</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <!-- ================= PROPERTIES ================= -->
@@ -18,6 +18,8 @@
         <cucumber.version>7.15.0</cucumber.version>
         <testng.version>7.9.0</testng.version>
         <webdrivermanager.version>5.7.0</webdrivermanager.version>
+        <!-- -Dheadless=true runs Chrome without a window (CI does this) -->
+        <headless>false</headless>
     </properties>
 
     <!-- ================= DEPENDENCIES ================= -->
@@ -108,6 +110,9 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <systemPropertyVariables>
+                        <headless>${headless}</headless>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
 

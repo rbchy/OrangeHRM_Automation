@@ -15,8 +15,8 @@ public class GenerateReport {
         List<String> jsonFiles = new ArrayList<>();
         jsonFiles.add("target/cucumber.json");
 
-        Configuration configuration = new Configuration(reportOutputDirectory, "Payroll Framework");
-        configuration.addClassifications("Platform", "Mac");
+        Configuration configuration = new Configuration(reportOutputDirectory, "OrangeHRM BDD Framework");
+        configuration.addClassifications("Platform", System.getProperty("os.name"));
         configuration.addClassifications("Browser", "Chrome");
 
         ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration);
